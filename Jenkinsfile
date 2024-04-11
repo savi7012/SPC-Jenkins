@@ -12,11 +12,6 @@ pipeline {
                     branch: 'main'                    
             }
         }
-        stage('Maven Compile'){
-            steps{
-                
-            }
-        }
 
     }
 }
