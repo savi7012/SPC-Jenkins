@@ -12,6 +12,10 @@ pipeline {
                     branch: 'main'                    
             }
         }
-
+        stage('Maven Compile'){
+            steps{
+                sh 'mvn compile'
+            }
+        }
     }
 }
