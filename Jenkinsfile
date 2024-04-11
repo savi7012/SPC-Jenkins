@@ -2,6 +2,9 @@ pipeline {
     agent{
         label 'maven'
     }
+    environment {
+        mvn = '/opt/apache-maven-3.9.6/bin/mvn'
+    }
     
     stages{
         stage('Git Checkout'){
@@ -12,7 +15,7 @@ pipeline {
         }
         stage('Maven Compile'){
             steps{
-                sh "/opt/apache-maven-3.9.6/bin/mvn compile"
+                sh "$mvn compile"
             }
         }
     }
