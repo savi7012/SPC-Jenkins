@@ -1,6 +1,6 @@
 pipeline {
     agent{
-        label 'maven'
+        label 'maven-master'
     }
     
     stages{
@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Maven Compile'){
             steps{
-                sh 'mvn compile'
+                sh "mvn compile"
             }
         }
     }
