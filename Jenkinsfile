@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Maven Compile'){
             steps{
-                sh "mvn compile"
+                sh "/opt/apache-maven-3.9.6/bin/mvn compile"
             }
         }
     }
