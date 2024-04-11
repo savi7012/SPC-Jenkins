@@ -2,9 +2,7 @@ pipeline {
     agent{
         label 'maven'
     }
-    triggers{
-        cron('* * * * *')
-    }
+    
     stages{
         stage('Git Checkout'){
             steps{
@@ -14,7 +12,7 @@ pipeline {
         }
         stage('Maven Compile'){
             steps{
-                sh "mvn compile"
+                sh 'mvn compile'
             }
         }
     }
