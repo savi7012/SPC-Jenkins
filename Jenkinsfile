@@ -1,26 +1,22 @@
 pipeline {
-    agent { label 'maven-master' }
+    agent{
+        label 'maven'
+    }
+    triggers{
+        cron('* * * * *')
+    }
+    stages{
+        stage('Git Checkout'){
+            steps{
+                git url: 'https://github.com/spring-projects/spring-petclinic.git',
+                    branch: 'main'                    
+            }
+        }
+        stage('Maven Compile'){
+            steps{
+                
+            }
+        }
 
-    stages {
-        stage('Git Checkout') {
-            steps {
-                git branch: 'main', url: 'https://github.com/spring-projects/spring-petclinic.git'
-            }
-        }
-        stage('MVN Validate') {
-            steps {
-                sh 'mvn validate'
-            }
-        }
-        stage('MVN Compile') {
-            steps {
-                sh 'mvn compile'
-            }
-        }
-        stage('MVN Package') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
     }
 }
